@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Una Carta para Ti 💜</title>
+  <style>
+    /* ==========================================================
+       PALETA DE COLORES Y ESTILOS BASE (MORADOS)
+       ========================================================== */
+    :root {
+      --bg-dark: #120024;
+      --bg-card: rgba(35, 12, 58, 0.85);
+      --purple-accent: #a855f7;
+      --purple-light: #e9d5ff;
+      --pink-glow: #ec4899;
+      --text-color: #f3e8ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at center, #2e1065, #120024, #090014);
+      color: var(--text-color);
+      font-family: 'Cursiva', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    /* Canvas interactivo de fondo */
+    #particles-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ==========================================================
+       CONTENEDOR Y CARTA DE AMOR
+       ========================================================== */
+    .card-container {
+      position: relative;
+      z-index: 10;
+      max-width: 650px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 24px;
+      padding: 40px 30px;
+      box-shadow: 0 0 35px rgba(168, 85, 247, 0.25), inset 0 0 15px rgba(236, 72, 153, 0.15);
+      backdrop-filter: blur(12px);
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h1 {
+      font-family: 'Georgia', serif;
+      color: var(--purple-light);
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px var(--purple-accent);
+    }
+
+    /* Mensaje editable */
+    .love-message {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #f3e8ff;
+      margin-bottom: 30px;
+      text-align: justify;
+      white-space: pre-line; /* Mantiene saltos de línea */
+    }
+
+    /* Galería de imágenes */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .photo-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid rgba(233, 213, 255, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      aspect-ratio: 1 / 1;
+    }
+
+    .photo-item:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.5);
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Detalle de sobre decorativo */
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple-accent), var(--pink-glow));
+      color: white;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);
+    }
+
+    .footer-note {
+      font-style: italic;
+      color: var(--purple-light);
+      margin-top: 25px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Canvas para partículas interactivas (estrellas y corazones) -->
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="card-container">
+    <div class="badge">✨ Para mi linda esposita ✨</div>
+    
+    <!-- 1. TÍTULO DE LA CARTA (CÁMBIALO AQUÍ) -->
+    <h1> Mi Niña Preciosa 💜</h1>
+
+    <!-- 2. MENSAJE PRINCIPAL (EDITA TU TEXTO AQUÍ) -->
+    <p class="love-message">
+      Mi vida hermosa, hoy cumplimos dos meses ya, no crei que llegariamos, pero en este punto eres lo que mas amo 
+      eres lo que mas quiero cuidar, proteger y lo que mas necesito conmigo, eres inigualable amor, no existe niña mas
+       linda que tu, eres mi princesa, mi angel, mi rayito de luz en medio de la oscuridad, llegaste a mi vida en un momento 
+       dificil por el cual estaba yo pasando, pero ahora, cada mensaje que recibo tuyo me alegra mi dia, hay veces que no hago 
+       las cosas ya que me da cosa que yo llegue a ser intenso contigo y pueda que  no te guste o te aburras.
+      Espero nunca me abandones tu, tu no mi niña, mientras escribo esto se me pusieron llorosos los ojos que horror.
+      Jamas crei que alguna vez tendria la suerte de encontrarme con alguien como tu,
+      de conectar tan bien con una persona, de extrañarla cada segundo, de buscar un futuro con ella, cada te amo es sincero
+      porque nadie me ha hecho sentir asi. No estoy seguro de cuanto dure esto, pero estoy seguro de que siempre te amare, siempre 
+      habra una parte de ti en mi y eso es lo que mas me gusta.
+      Tu eres la razon por la que sonrio incluso cuando estoy cansado, la razon por la que me acuesto feliz,
+      eres el motivo de mis pensamientos mas bonitos, no existe manera para describir lo que siento por ti, te extraño incluso sin habernos 
+      visto alguna vez, TE AMO, siempre recuerdalo.
+
+
+      Esta carta es muy poco para decirte todo lo que siento, pero esta hecha con mucho amor para ti  
+      ¡Te amo hoy y siempre! 
+    </p>
+
+   <!-- 3. GALERÍA DE IMÁGENES -->
+<div class="photo-gallery">
+  <div class="photo-item">
+    <img src="foto1.jpeg" alt="Foto juntos 1">
+  </div>
+  <div class="photo-item">
+    <img src="foto2.jpeg" alt="Foto juntos 2">
+  </div>
+  <div class="photo-item">
+    <img src="foto3.jpeg" alt="Foto juntos 3">
+  </div>
+</div>
+
+    <!-- 4. FIRMA O NOTA FINAL -->
+    <p class="footer-note">Para la niña de mis ojos ✨</p>
+  </div>
+
+  <script>
+    /* ==========================================================
+       EFECTOS INTERACTIVOS (ESTRELLAS Y CORAZONES DESTELANTES)
+       ========================================================== */
+    const canvas = document.getElementById('particles-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+    const colors = ['#a855f7', '#e9d5ff', '#ec4899', '#f472b6', '#ffffff'];
+
+    // Clase para representar Estrellas o Corazones
+    class Particle {
+      constructor(x, y, isTouch = false) {
+        this.x = x;
+        this.y = y;
+        this.type = Math.random() > 0.4 ? 'heart' : 'star';
+        this.size = Math.random() * (isTouch ? 14 : 8) + 4;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.vx = (Math.random() - 0.5) * (isTouch ? 3 : 1.5);
+        this.vy = (Math.random() - 0.5) * (isTouch ? 3 : 1.5) - (isTouch ? 1 : 0.2);
+        this.alpha = 1;
+        this.decay = Math.random() * 0.02 + 0.01;
+        this.rotation = Math.random() * Math.PI * 2;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+
+        if (this.type === 'heart') {
+          // Dibujo de un corazón suave
+          ctx.beginPath();
+          const topCurveHeight = this.size * 0.3;
+          ctx.moveTo(0, topCurveHeight);
+          ctx.bezierCurveTo(0, 0, -this.size / 2, 0, -this.size / 2, topCurveHeight);
+          ctx.bezierCurveTo(-this.size / 2, (this.size + topCurveHeight) / 2, 0, this.size, 0, this.size);
+          ctx.bezierCurveTo(0, this.size, this.size / 2, (this.size + topCurveHeight) / 2, this.size / 2, topCurveHeight);
+          ctx.bezierCurveTo(this.size / 2, 0, 0, 0, 0, topCurveHeight);
+          ctx.closePath();
+          ctx.fill();
+        } else {
+          // Dibujo de una estrella de 4 puntas / destello
+          ctx.beginPath();
+          for (let i = 0; i < 4; i++) {
+            ctx.lineTo(Math.cos((i * Math.PI) / 2) * this.size, Math.sin((i * Math.PI) / 2) * this.size);
+            ctx.lineTo(Math.cos((i * Math.PI) / 2 + Math.PI / 4) * (this.size / 3), Math.sin((i * Math.PI) / 2 + Math.PI / 4) * (this.size / 3));
+          }
+          ctx.closePath();
+          ctx.fill();
+        }
+
+        ctx.restore();
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= this.decay;
+        this.size = Math.max(0, this.size - 0.05);
+      }
+    }
+
+    // Generar partículas ambiente
+    function createAmbientParticles() {
+      if (Math.random() < 0.3) {
+        particles.push(new Particle(Math.random() * width, Math.random() * height));
+      }
+    }
+
+    // Eventos de movimiento (Mouse o Táctil)
+    function addInteractiveParticles(x, y, count = 2) {
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle(x, y, true));
+      }
+    }
+
+    window.addEventListener('mousemove', (e) => {
+      addInteractiveParticles(e.clientX, e.clientY, 2);
+    });
+
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 0) {
+        addInteractiveParticles(e.touches[0].clientX, e.touches[0].clientY, 3);
+      }
+    });
+
+    window.addEventListener('click', (e) => {
+      addInteractiveParticles(e.clientX, e.clientY, 10); // Ráfaga al hacer clic
+    });
+
+    // Bucle de animación
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      createAmbientParticles();
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        particles[i].update();
+        particles[i].draw();
+
+        if (particles[i].alpha <= 0 || particles[i].size <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
